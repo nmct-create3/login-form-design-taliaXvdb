@@ -2,8 +2,25 @@
  # SETTINGS
 /*---------------------------------------*/
 
+@font-face {
+  font-family: 'Inter Web';
+  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Inter Web';
+  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+}
+
 :root {
   /* CSS variables here */
+  --global-color-text: #20223a;
+  --global-color-bg: #F5F6FA;
+  --global-color-selection-bg: #3385FF;
+  --global-color-link: #3385FF;
+  --global-color-hover-link:
 }
 
 /*---------------------------------------/*
@@ -38,9 +55,10 @@ img {
 html {
   font-size: 100%;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
-  color: #171b1c;
+  font-family: "Inter Web", Helvetica, arial, sans-serif;
+  color: #20223a;
   scroll-behavior: smooth;
+  background-color: #F5F6FA;
   /* anti aliasing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -63,20 +81,20 @@ html {
 
 h1 {
   font-size: 2.25rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 2rem;
   margin-bottom: 1.5rem;
 }
 
 h2 {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.5rem;
   margin-bottom: 1.5rem;
@@ -133,20 +151,25 @@ hr {
 }
 
 a {
-  color: #008fcc;
+  color: #3385FF;
   transition: all 0.1s ease-in-out;
 }
 
 a:visited {
-  color: #008fcc;
+  color: #2E77E6;
 }
 
 a:hover {
-  color: #00b2ff;
+  color: #4F95FF;
 }
 
 a:active {
-  color: #006b99;
+  color: #2E77E6;
+}
+
+input,
+label {
+  display: block;
 }
 
 /*---------------------------------------/*
@@ -289,6 +312,35 @@ a:active {
   align-content: space-between;
 }
 
+/*
+ Object: Button reset
+ ---
+ Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+ 
+ /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+ 
+ /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+ 
+ /* Corrects font smoothing for webkit */
+ -webkit-font-smoothing: inherit;
+ -moz-osx-font-smoothing: inherit;
+ 
+ /* Corrects inability to style clickable `input` types in iOS */
+ -webkit-appearance: none;
+ }
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
@@ -298,6 +350,74 @@ a:active {
     Component description
 */
 
+.c-logo{
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.c-logo__symbol{
+  height: 100%;
+  display: block;
+}
+
+.c-logo__path--1{
+  fill: #20223A;
+}
+
+.c-logo__path--2{
+  fill: #3385FF;
+}
+
+.c-logo__path--3{
+  fill: #1B4186;
+}
+
+.c-form-field--option{
+  display: flex;
+  gap: .5rem;
+}
+
+.c-input{
+  appearance: none;
+  width: 100%;
+  border: 1px solid #E2E3E7;
+  border-radius: 3px;
+  padding: calc(1rem - 2px) 1rem;
+  outline: none;
+}
+
+.c-input:focus{
+  border-color: #3385FF;
+  box-shadow: h-offset v-offset blur spread color;
+  box-shadow: 0 0 0 3px #3385ff4d; 
+}
+
+.c-button{
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid #2E77E6;
+  border-radius: 3px;
+  color: white;
+  background-color: #3385FF;
+  padding: .75rem;
+  width: 100%;
+}
+
+.c-button:hover{
+  background-color: #4F95FF;
+}
+
+.c-button:focus{
+  outline: none;
+  background-color: #3385FF;
+  box-shadow: h-offset v-offset blur spread color;
+  box-shadow: 0 0 0 3px #3385ff4d; 
+}
+
+.c-button:active{
+  background-color: #2E77E6;
+}
 /*---------------------------------------/*
  # UTILITIES
 /*---------------------------------------*/
